@@ -24,7 +24,7 @@ app.get('/',(req, res) => {
 // 使req.body得以被取得
 app.use(bodyParser.urlencoded({ extended: true }))
 
-// 將網址與隨機五碼存入資料庫
+////將網址與隨機五碼存入資料庫
 const Url = require('./models/url')
 app.post('/url',(req, res) => {
   const url = req.body.url
@@ -48,7 +48,17 @@ app.post('/url',(req, res) => {
   }
   // 製作出不重複的5碼組合
   fiveCharacters = pickCharacter(generateCharecters())
+  // 製作出縮短的網址
+  const shortUrl = `http://localhost:3000/${fiveCharacters}`
 
   return Url.create({url, fiveCharacters})
-    .then(() => res.redirect('/'))
+    .then(() => res.render('index',{ shortUrl }))
+})
+
+////藉由5碼組合找出對應的資料
+app.get('/:characterSet', (req, res) => {
+  const characterSet = req.params.characterSet
+  return Url.find({ fiveCharacters: characterSet })
+    .lean()
+    .then(urldata => res.redirect(urldata[0].url))
 })
