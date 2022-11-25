@@ -1,5 +1,25 @@
-<form action="/url" method="POST">
-  <input name="url" type="text" placeholder="請輸入網址">
-  <button type="submit">送出</button>
-  <div>{{shortUrl}}</div>
-</form>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-3">
+
+      <p class="text-center"URL Shortener</p>
+      <div class="row">
+        <img src="https://assets-lighthouse.alphacamp.co/uploads/image/file/16716/ExportedContentImage_00.png" alt="">
+      </div>
+
+    </div>
+
+    <div class="col-12 mt-5">
+      <form action="/url" class="row justify-content-center needs-validation" method="POST">
+
+        <input name="url" type="text" placeholder="請輸入網址" class="form-control" required>
+        <button type="submit" class="btn btn-outline-primary col-6 mt-3">Shorten</button>
+        
+        <div>{{shortUrl}}</div>
+
+      </form>
+    </div>
+
+  </div>
+</div>
+

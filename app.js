@@ -28,6 +28,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // 引入routes
 app.use(routes)
 
+// set static files
+app.use(express.static('public'))
+
 // ////將網址與隨機五碼存入資料庫
 const Url = require('./models/url')
 
@@ -38,3 +41,4 @@ app.get('/:characterSet', (req, res) => {
     .lean()
     .then(urldata => res.redirect(urldata[0].url))
 })
+
