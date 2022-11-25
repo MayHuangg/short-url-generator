@@ -16,7 +16,7 @@ Router.post('/url',(req, res) => {
       } else {
         // 如果沒有找到相同的url，則製作出短網址並存入資料庫
         fiveCharacters = pickCharacter(generateCharecters())
-        shortUrl = `http://localhost:3000/${fiveCharacters}` 
+        shortUrl = `http://localhost:3000/redirect/${fiveCharacters}` 
         Url.create({url:urlFromClient, fiveCharacters})
       } 
     })

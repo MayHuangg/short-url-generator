@@ -30,15 +30,3 @@ app.use(routes)
 
 // set static files
 app.use(express.static('public'))
-
-// ////將網址與隨機五碼存入資料庫
-const Url = require('./models/url')
-
-////藉由5碼組合找出對應的資料
-app.get('/:characterSet', (req, res) => {
-  const characterSet = req.params.characterSet
-  return Url.find({ fiveCharacters:characterSet })
-    .lean()
-    .then(urldata => res.redirect(urldata[0].url))
-})
-
