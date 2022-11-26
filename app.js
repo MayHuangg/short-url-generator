@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const mongoose = require('./config/mongoose')
+require('./config/mongoose')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const routes = require('./routes')
@@ -14,11 +14,11 @@ app.listen(port, () => {
   console.log(`listen on port: ${port}`)
 })
 
-// set templete engine 
+// set templete engine
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
-app.get('/',(req, res) => {
+app.get('/', (req, res) => {
   res.render('index')
 })
 

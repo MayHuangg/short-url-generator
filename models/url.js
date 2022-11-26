@@ -1,14 +1,14 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const Url = new Schema({
-  url:{
+  url: {
     type: String,
     required: true
   },
-  fiveCharacters:{
+  fiveCharacters: {
     type: String,
-    required:true
+    required: true
   }
 })
 
-module.exports = mongoose.model('UrlSchema',Url)
+module.exports = mongoose.model('UrlSchema', Url)
