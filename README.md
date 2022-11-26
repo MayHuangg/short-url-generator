@@ -12,16 +12,12 @@ cd short-url-generator
 npm install
 ```
 
-2.設定環境變數連線至 MongoDB
 
-```
-MONGODB_URI = mongodb+srv://alpha:camp@cluster0.spwrmxz.mongodb.net/?retryWrites=true&w=majority
-```
+2.啟動專案
 
-3.輸入
-
+輸入下方程式碼即可啟動專案。
 ```
 npm run start
 ```
 
-4.進入 http://localhost:3000 即可使用此專案。
+3.進入 http://localhost:3000 即可使用此專案。
