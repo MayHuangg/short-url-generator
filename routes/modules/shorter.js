@@ -3,7 +3,7 @@ const Router = express.Router()
 const Url = require('../../models/url')
 
 // 將網址與隨機五碼存入資料庫
-Router.post('/url', (req, res) => {
+Router.post('/', (req, res) => {
   const urlFromClient = req.body.url
   let fiveCharacters = ''
   let shortUrl = ''
@@ -12,11 +12,11 @@ Router.post('/url', (req, res) => {
     .then(data => {
       // 如果有在資料庫中找到相同url的資料，直接從資料庫中抓出先前生成的短網址
       if (data[0]) {
-        shortUrl = `http://localhost:3000/redirect/${data[0].fiveCharacters}`
+        shortUrl = `http://localhost:3000/${data[0].fiveCharacters}`
       } else {
         // 如果沒有找到相同的url，則製作出短網址並存入資料庫
         fiveCharacters = pickCharacter(generateCharecters())
-        shortUrl = `http://localhost:3000/redirect/${fiveCharacters}`
+        shortUrl = `http://localhost:3000/${fiveCharacters}`
         Url.create({ url: urlFromClient, fiveCharacters })
       }
     })

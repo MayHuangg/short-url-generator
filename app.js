@@ -5,9 +5,6 @@ const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const routes = require('./routes')
 
-// 裝已使用過的5碼組合
-// let usedSet = []
-
 // listen on server
 const port = 3000
 app.listen(port, () => {
